@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="fr" data-site="portail">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Outils Order-to-Cash · SCO</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2094%2063%22%3E%3Cpath%20d%3D%22M68.49%2031.25L59.51%2046.45L59.50%2046.44L53.44%2056.70C51.30%2060.33%2047.31%2062.57%2042.99%2062.59L22.49%2062.69C18.17%2062.71%2014.16%2060.50%2011.98%2056.89L1.65%2039.79C-0.53%2036.18%20-0.55%2031.73%201.59%2028.10L7.62%2017.91L16.23%203.31C18.07%200.19%2022.16%20-0.92%2025.41%200.82C28.74%202.60%2029.90%206.69%2027.98%209.86L19.23%2024.31L17.03%2028.03C14.89%2031.66%2014.91%2036.11%2017.09%2039.72L19.64%2043.94C21.82%2047.55%2025.83%2049.76%2030.15%2049.74L35.21%2049.72C39.53%2049.70%2043.52%2047.45%2045.66%2043.82L47.90%2040.04L47.90%2040.04L56.88%2024.85C58.71%2021.75%2062.80%2020.67%2066.00%2022.44C69.21%2024.21%2070.32%2028.16%2068.49%2031.25Z%22%20fill%3D%22%23FF3F4C%22%2F%3E%3Cpath%20d%3D%22M26.38%2031.75L35.36%2016.56L35.36%2016.56L41.43%206.30C43.57%202.67%2047.56%200.43%2051.88%200.41L72.38%200.31C76.70%200.29%2080.71%202.50%2082.89%206.11L93.22%2023.21C95.40%2026.82%2095.42%2031.27%2093.28%2034.90L87.25%2045.09L78.63%2059.69C76.80%2062.81%2072.71%2063.91%2069.46%2062.18C66.12%2060.40%2064.96%2056.31%2066.89%2053.14L75.64%2038.69L77.84%2034.97C79.98%2031.34%2079.96%2026.89%2077.78%2023.28L75.23%2019.06C73.05%2015.45%2069.04%2013.24%2064.72%2013.26L59.66%2013.28C55.34%2013.30%2051.35%2015.55%2049.21%2019.18L46.97%2022.96L46.97%2022.96L37.98%2038.15C36.16%2041.25%2032.07%2042.32%2028.86%2040.56C25.66%2038.79%2024.55%2034.84%2026.38%2031.75Z%22%20fill%3D%22%23FF3F4C%22%2F%3E%3C%2Fsvg%3E">
+<style>
+/* ==========================================================================
+   SCO · Design system des outils O2C
+   Jetons repris de supplychainoperations.ch (Webflow) : police Supreme,
+   rouge #FF3F4C, noir #0B0909, gris clair #F6F5F5, rayons 8 / 16 / 20 px.
+   ========================================================================== */
+
+@import url("https://api.fontshare.com/v2/css?f[]=supreme@300,400,500,700&display=swap");
+
+:root {
+  /* Couleurs de marque */
+  --brand-500: #ff3f4c;
+  --brand-600: #cc3240;
+  --brand-700: #992630;
+  --brand-100: #ffd9db;
+  --brand-50: #fff0f1;
+  --dark-900: #0b0909;
+  --dark-800: #1a1717;
+  --dark-700: #292526;
+  --light-100: #ffffff;
+  --light-200: #f6f5f5;
+  --light-250: #efeded;
+  --neutral-300: #d8d8d8;
+  --neutral-400: #a69f9f;
+  --neutral-500: #7a7171;
+  --neutral-600: #585151;
+
+  /* Couleurs fonctionnelles (statuts) */
+  --ok-600: #1f8a5b;
+  --ok-50: #e9f6ef;
+  --warn-600: #b7791f;
+  --warn-50: #fdf5e6;
+  --info-600: #2f5f8f;
+  --info-50: #eaf1f8;
+
+  /* Rôles */
+  --bg: var(--light-100);
+  --bg-2: var(--light-200);
+  --text: var(--dark-900);
+  --text-2: var(--neutral-600);
+  --text-3: var(--neutral-500);
+  --border: color-mix(in srgb, var(--dark-900) 12%, transparent);
+  --border-strong: color-mix(in srgb, var(--dark-900) 22%, transparent);
+
+  /* Typographie */
+  --font: "Supreme", "Supreme Variable", Arial, sans-serif;
+  --tight: -0.03em;
+
+  /* Rayons */
+  --r-sm: 0.5rem;
+  --r-md: 1rem;
+  --r-lg: 1.25rem;
+  --r-round: 100vw;
+
+  --shadow-1: 0 1px 2px rgba(11, 9, 9, 0.04), 0 4px 16px rgba(11, 9, 9, 0.04);
+  --shadow-2: 0 2px 6px rgba(11, 9, 9, 0.06), 0 18px 48px rgba(11, 9, 9, 0.1);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: inherit; }
+::selection { background: var(--brand-500); color: #fff; }
+
+/* ---------- Typographie ---------- */
+.display, .h1, .h2, .h3, .h4, h1, h2, h3, h4 {
+  font-weight: 400;
+  letter-spacing: var(--tight);
+  line-height: 1.1;
+  margin: 0;
+  text-wrap: balance;
+}
+.display { font-size: clamp(3rem, 2rem + 4vw, 6rem); line-height: 1; }
+.h1, h1 { font-size: clamp(2.5rem, 1.8rem + 2.6vw, 4.25rem); }
+.h2, h2 { font-size: clamp(2rem, 1.6rem + 1.6vw, 3rem); }
+.h3, h3 { font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem); }
+.h4, h4 { font-size: 1.25rem; line-height: 1.25; }
+.lead { font-size: clamp(1.05rem, 1rem + 0.25vw, 1.25rem); line-height: 1.5; color: var(--text-2); text-wrap: pretty; }
+.muted { color: var(--text-3); }
+.small { font-size: 0.875rem; }
+.xs { font-size: 0.8125rem; }
+.red { color: var(--brand-500); }
+.num { font-variant-numeric: tabular-nums; }
+.medium { font-weight: 500; }
+.bold { font-weight: 700; }
+
+/* Petit libellé majuscule « OUR MISSION » */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.label .dot { width: 6px; height: 6px; border-radius: 2px; background: var(--brand-500); }
+
+/* Badge du hero « Experts in Life Sciences · Based in Switzerland » */
+.eyebrow { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; font-size: 0.875rem; color: var(--text-2); }
+.eyebrow span { display: inline-flex; align-items: center; gap: 0.45rem; }
+.swiss-flag { width: 12px; height: 12px; border-radius: 2px; background: #ff0000; position: relative; flex: none; }
+.swiss-flag::before, .swiss-flag::after { content: ""; position: absolute; background: #fff; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.swiss-flag::before { width: 7px; height: 2px; }
+.swiss-flag::after { width: 2px; height: 7px; }
+
+/* Numérotation 01 / 02 / 03 */
+.index { font-size: 0.8125rem; color: var(--text-3); font-variant-numeric: tabular-nums; }
+
+.hr { height: 1px; background: var(--border); border: 0; margin: 0; }
+
+/* ---------- Mise en page ---------- */
+.container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+.container.narrow { max-width: 880px; }
+.stack > * + * { margin-top: var(--gap, 1rem); }
+.row { display: flex; gap: var(--gap, 1rem); align-items: center; }
+.row.wrap { flex-wrap: wrap; }
+.row.between { justify-content: space-between; }
+.row.top { align-items: flex-start; }
+.grow { flex: 1 1 auto; min-width: 0; }
+.grid { display: grid; gap: var(--gap, 1rem); }
+.grid.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 960px) {
+  .grid.c3, .grid.c4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .container { padding: 0 16px; }
+  .grid.c2, .grid.c3, .grid.c4 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Boutons (repris du site : primaire rouge, secondaire gris clair) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; }
+.btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--brand-500); color: #fff; }
+.btn-primary:hover { background: var(--dark-900); }
+.btn-dark { background: var(--dark-900); color: #fff; }
+.btn-dark:hover { background: var(--brand-500); }
+.btn-light { background: var(--light-200); color: color-mix(in srgb, var(--dark-900) 80%, transparent); }
+.btn-light:hover { background: var(--dark-900); color: #fff; }
+.btn-ghost { background: transparent; color: var(--text); border-color: var(--border-strong); }
+.btn-ghost:hover { border-color: var(--dark-900); }
+.btn-sm { min-height: 34px; padding: 0.4rem 0.75rem; font-size: 0.8125rem; }
+.btn-lg { min-height: 52px; padding: 0.85rem 1.5rem; font-size: 1rem; }
+.btn-icon { width: 38px; min-height: 38px; padding: 0; }
+.btn .arrow { transition: transform 0.2s var(--ease); }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ---------- Cartes & surfaces ---------- */
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 1.5rem;
+}
+.card.soft { background: var(--bg-2); border-color: transparent; }
+.card.dark { background: var(--dark-900); color: #fff; border-color: transparent; }
+.card.dark .muted, .card.dark .label { color: color-mix(in srgb, #fff 60%, transparent); }
+.card.red { background: var(--brand-500); color: #fff; border-color: transparent; }
+.card.hover { transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease); }
+.card.hover:hover { border-color: var(--border-strong); box-shadow: var(--shadow-1); }
+.card-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.card-title { font-size: 1.0625rem; font-weight: 500; letter-spacing: -0.01em; margin: 0; }
+.surface { background: var(--bg-2); border-radius: var(--r-lg); }
+
+/* KPI */
+.kpi .kpi-value { font-size: clamp(2rem, 1.6rem + 1.2vw, 2.75rem); letter-spacing: var(--tight); line-height: 1; font-variant-numeric: tabular-nums; }
+.kpi .kpi-unit { font-size: 1rem; color: var(--text-3); margin-left: 0.2rem; letter-spacing: 0; }
+.kpi .kpi-label { font-size: 0.8125rem; color: var(--text-3); margin-top: 0.5rem; }
+.kpi .kpi-delta { font-size: 0.8125rem; margin-top: 0.35rem; }
+.delta-up { color: var(--ok-600); }
+.delta-down { color: var(--brand-600); }
+
+/* ---------- Pastilles ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--r-round);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  background: var(--light-200);
+  color: var(--text-2);
+}
+.pill.red { background: var(--brand-50); color: var(--brand-600); }
+.pill.dark { background: var(--dark-900); color: #fff; }
+.pill.ok { background: var(--ok-50); color: var(--ok-600); }
+.pill.warn { background: var(--warn-50); color: var(--warn-600); }
+.pill.info { background: var(--info-50); color: var(--info-600); }
+.pill.outline { background: transparent; border: 1px solid var(--border-strong); }
+.pill .bullet { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* ---------- Formulaires ---------- */
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.field > label, .field-label { font-size: 0.8125rem; font-weight: 500; color: var(--text-2); }
+.input, .select, .textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.7rem 0.9rem;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-sm);
+  font-size: 0.9375rem;
+  transition: border-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+.textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
+.input::placeholder, .textarea::placeholder { color: var(--neutral-400); }
+.input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--dark-900); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-500) 18%, transparent); }
+.input.soft, .select.soft { background: var(--bg-2); border-color: transparent; }
+.select { appearance: none; padding-right: 2.4rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230B0909' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.9rem center; }
+.check { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.875rem; color: var(--text-2); cursor: pointer; }
+.check input { width: 18px; height: 18px; margin: 0.15rem 0 0; accent-color: var(--brand-500); flex: none; }
+.hint { font-size: 0.8125rem; color: var(--text-3); }
+.error-text { font-size: 0.8125rem; color: var(--brand-600); }
+
+/* Choix sous forme de cartes (questionnaire) */
+.choice {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem 1.1rem;
+  text-align: left;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: border-color 0.15s var(--ease), background-color 0.15s var(--ease);
+}
+.choice:hover { border-color: var(--border-strong); background: var(--bg-2); }
+.choice[aria-pressed="true"], .choice.selected { border-color: var(--dark-900); background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--dark-900); }
+.choice .choice-key { flex: none; width: 28px; height: 28px; border-radius: var(--r-sm); display: grid; place-items: center; font-size: 0.8125rem; background: var(--light-200); color: var(--text-2); }
+.choice[aria-pressed="true"] .choice-key, .choice.selected .choice-key { background: var(--brand-500); color: #fff; }
+
+/* ---------- Segments / onglets ---------- */
+.tabs { display: inline-flex; gap: 0.25rem; padding: 0.25rem; background: var(--bg-2); border-radius: var(--r-sm); }
+.tab { border: 0; background: transparent; padding: 0.45rem 0.8rem; border-radius: 6px; font-size: 0.875rem; color: var(--text-2); cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--bg); color: var(--text); box-shadow: 0 1px 2px rgba(11, 9, 9, 0.08); }
+
+/* ---------- Tableaux ---------- */
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-md); }
+.table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.table th { text-align: left; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-3); padding: 0.75rem 1rem; background: var(--bg-2); white-space: nowrap; }
+.table td { padding: 0.8rem 1rem; border-top: 1px solid var(--border); vertical-align: middle; }
+.table tr.clickable { cursor: pointer; }
+.table tr.clickable:hover td { background: color-mix(in srgb, var(--light-200) 60%, transparent); }
+.table .right { text-align: right; }
+
+/* ---------- Barre de progression ---------- */
+.progress { height: 4px; background: var(--light-250); border-radius: var(--r-round); overflow: hidden; }
+.progress > span { display: block; height: 100%; background: var(--brand-500); border-radius: inherit; transition: width 0.4s var(--ease); }
+.meter { height: 8px; background: var(--light-250); border-radius: var(--r-round); overflow: hidden; }
+.meter > span { display: block; height: 100%; border-radius: inherit; }
+
+/* ---------- Barre de navigation flottante (comme le site) ---------- */
+.topbar-wrap { position: sticky; top: 0; z-index: 40; padding: 14px 0; background: linear-gradient(var(--bg) 60%, transparent); }
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 60px;
+  padding: 0.5rem 0.75rem 0.5rem 1.25rem;
+  background: color-mix(in srgb, var(--light-200) 92%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--r-md);
+}
+.topbar .brand { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
+.topbar .brand .sep { width: 1px; height: 22px; background: var(--border-strong); }
+.topbar .brand .product { font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.01em; }
+.topbar nav { display: flex; gap: 0.25rem; margin-left: auto; }
+.topbar nav a, .topbar nav button { border: 0; background: transparent; padding: 0.5rem 0.8rem; border-radius: var(--r-sm); font-size: 0.875rem; color: var(--text-2); text-decoration: none; cursor: pointer; }
+.topbar nav a:hover, .topbar nav button:hover { color: var(--text); background: color-mix(in srgb, var(--dark-900) 6%, transparent); }
+.topbar nav a[aria-current="page"], .topbar nav button[aria-current="page"] { color: var(--text); background: var(--bg); }
+@media (max-width: 760px) {
+  .topbar .brand .product { display: none; }
+  .topbar nav { overflow-x: auto; }
+}
+
+/* Coque d'application avec menu latéral (outils internes) */
+.app-shell { display: grid; grid-template-columns: 248px minmax(0, 1fr); min-height: 100vh; }
+.sidebar { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; gap: 1.5rem; padding: 1.5rem 1rem; background: var(--bg-2); border-right: 1px solid var(--border); }
+.sidebar .brand { display: flex; flex-direction: column; gap: 0.6rem; padding: 0 0.5rem; text-decoration: none; }
+.sidebar .brand .product { font-size: 0.8125rem; color: var(--text-3); }
+.side-nav { display: flex; flex-direction: column; gap: 2px; }
+.side-nav button, .side-nav a {
+  display: flex; align-items: center; gap: 0.7rem; width: 100%;
+  padding: 0.6rem 0.75rem; border: 0; border-radius: var(--r-sm);
+  background: transparent; color: var(--text-2); font-size: 0.9rem; text-align: left; text-decoration: none; cursor: pointer;
+}
+.side-nav button:hover, .side-nav a:hover { background: color-mix(in srgb, var(--dark-900) 5%, transparent); color: var(--text); }
+.side-nav [aria-current="page"] { background: var(--bg); color: var(--text); box-shadow: 0 1px 2px rgba(11, 9, 9, 0.06); }
+.side-nav [aria-current="page"] svg { color: var(--brand-500); }
+.side-nav .count { margin-left: auto; font-size: 0.75rem; padding: 0 0.45rem; border-radius: var(--r-round); background: var(--brand-500); color: #fff; }
+.side-section { font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); padding: 0 0.75rem; margin: 0.5rem 0 0.25rem; }
+.sidebar .foot { margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem; padding: 0 0.5rem; }
+.main { min-width: 0; padding: 2rem 2.5rem 4rem; }
+.page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.page-head .h2 { margin-top: 0.4rem; }
+@media (max-width: 900px) {
+  .app-shell { grid-template-columns: minmax(0, 1fr); }
+  .sidebar { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; padding: 0.75rem 1rem; border-right: 0; border-bottom: 1px solid var(--border); }
+  .side-nav { flex-direction: row; flex-wrap: wrap; }
+  .side-nav button, .side-nav a { width: auto; }
+  .side-section, .sidebar .foot .finalyn-credit { display: none; }
+  .sidebar .foot { margin: 0 0 0 auto; flex-direction: row; }
+  .main { padding: 1.25rem 16px 3rem; }
+}
+
+/* ---------- Motif de fond : symbole SCO en traits fins ---------- */
+.bg-lines { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.bg-lines .sco-symbol-outline { position: absolute; width: min(1300px, 140vw); height: auto; right: -18%; top: -14%; }
+.bg-lines .sco-symbol-outline.red { right: -16%; top: -12%; }
+.has-bg-lines { position: relative; isolation: isolate; }
+.has-bg-lines > *:not(.bg-lines) { position: relative; z-index: 1; }
+
+/* ---------- Modale & notifications ---------- */
+.modal-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px; background: rgba(11, 9, 9, 0.45); animation: fade 0.2s var(--ease); }
+.modal { width: min(560px, 100%); max-height: calc(100vh - 32px); overflow: auto; background: var(--bg); border-radius: var(--r-lg); box-shadow: var(--shadow-2); padding: 1.75rem; animation: pop 0.25s var(--ease); }
+.modal.wide { width: min(860px, 100%); }
+.modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+.toast-zone { position: fixed; z-index: 120; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; gap: 8px; align-items: center; pointer-events: none; }
+.toast { pointer-events: auto; display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1rem; border-radius: var(--r-sm); background: var(--dark-900); color: #fff; font-size: 0.875rem; box-shadow: var(--shadow-2); animation: pop 0.25s var(--ease); }
+.toast .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand-500); }
+@keyframes fade { from { opacity: 0; } }
+@keyframes pop { from { opacity: 0; transform: translateY(6px) scale(0.98); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner { width: 16px; height: 16px; border-radius: 50%; border: 2px solid color-mix(in srgb, currentColor 25%, transparent); border-top-color: currentColor; animation: spin 0.8s linear infinite; }
+
+/* Bloc de texte rédigé par l'IA */
+.ai-block { position: relative; padding: 1.25rem 1.4rem; border-radius: var(--r-md); background: var(--bg-2); }
+.ai-source { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: var(--text-3); }
+.prose p { margin: 0 0 0.8em; }
+.prose p:last-child { margin-bottom: 0; }
+.prose ul { margin: 0 0 0.8em; padding-left: 1.1em; }
+.prose li { margin: 0.25em 0; }
+.prose strong { font-weight: 500; }
+
+/* Crédit Finalyn */
+.finalyn-credit { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--text-3); text-decoration: none; }
+.finalyn-credit svg { opacity: 0.85; }
+
+/* Graphiques SVG */
+.chart text { font-family: var(--font); fill: var(--text-3); font-size: 11px; }
+.chart .grid-line { stroke: var(--border); stroke-width: 1; }
+.chart .axis-line { stroke: var(--border-strong); stroke-width: 1; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; font-size: 0.8125rem; color: var(--text-2); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 0.4rem; vertical-align: -1px; }
+
+/* Utilitaires */
+.hidden { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+.mt-0 { margin-top: 0; } .mt-1 { margin-top: 0.5rem; } .mt-2 { margin-top: 1rem; } .mt-3 { margin-top: 1.5rem; } .mt-4 { margin-top: 2rem; } .mt-6 { margin-top: 3rem; } .mt-8 { margin-top: 4rem; }
+.mb-0 { margin-bottom: 0; } .mb-1 { margin-bottom: 0.5rem; } .mb-2 { margin-bottom: 1rem; } .mb-3 { margin-bottom: 1.5rem; } .mb-4 { margin-bottom: 2rem; }
+.center { text-align: center; }
+.nowrap { white-space: nowrap; }
+.ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+@media print {
+  .no-print, .topbar-wrap, .sidebar, .toast-zone { display: none !important; }
+  .app-shell { display: block; }
+  .main { padding: 0; }
+  body { background: #fff; }
+  .card { break-inside: avoid; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+</style>
+<style>
+  .hero { padding: clamp(3rem, 8vw, 7rem) 0 clamp(2.5rem, 6vw, 5rem); }
+  .hero .display { margin: 1.5rem 0 1.5rem; max-width: 14ch; }
+  .hero .lead { max-width: 38rem; }
+  .tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding-bottom: 4rem; }
+  .tool { display: flex; flex-direction: column; gap: 1rem; min-height: 360px; padding: 1.75rem; border-radius: var(--r-lg); background: var(--bg-2); text-decoration: none; transition: background-color .25s var(--ease), color .25s var(--ease), transform .25s var(--ease); }
+  .tool:hover { background: var(--dark-900); color: #fff; }
+  .tool:hover .muted, .tool:hover .label { color: rgba(255,255,255,.65); }
+  .tool:hover .pill { background: rgba(255,255,255,.12); color: #fff; }
+  .tool .h3 { margin-top: auto; }
+  .tool .go { display: inline-flex; align-items: center; gap: .5rem; font-size: .9375rem; font-weight: 500; color: var(--brand-500); }
+  .tool:hover .go svg { transform: translateX(4px); }
+  .tool .go svg { transition: transform .25s var(--ease); }
+  .tool-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .foot { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 1.25rem 0 1.5rem; border-top: 1px solid var(--border); font-size: .8125rem; color: var(--text-3); }
+  @media (max-width: 960px) { .tools { grid-template-columns: minmax(0, 1fr); } .tool { min-height: 0; } .tool .h3 { margin-top: 1.5rem; } }
+</style>
+</head>
+<body class="has-bg-lines">
+<div class="bg-lines" id="lines" aria-hidden="true"></div>
+<div class="container">
+  <div class="topbar-wrap" style="background:none">
+    <div class="topbar">
+      <span class="brand"><span id="logo"></span><span class="sep"></span><span class="product">Outils Order-to-Cash</span></span>
+      <span class="pill outline" style="margin-left:auto">Accès réservé</span>
+    </div>
+  </div>
+  <section class="hero">
+    <div class="eyebrow"><span>Experts Life Sciences</span><span><i class="swiss-flag"></i>Basé en Suisse</span></div>
+    <h1 class="display">Order-to-Cash, de la mesure à l'action</h1>
+    <p class="lead">Trois outils SCO pour diagnostiquer, prospecter et piloter la performance Order-to-Cash des entreprises Life Sciences. Chaque espace est protégé par un identifiant et un mot de passe.</p>
+  </section>
+  <section class="tools" aria-label="Outils">
+    <a class="tool" href="diagnostic/">
+      <div class="tool-top"><span class="index">01</span><span class="pill red"><span class="bullet"></span>Aimant à leads</span></div>
+      <h2 class="h3">Diagnostic O2C en ligne</h2>
+      <p class="muted mt-0">18 questions sur la commande, la facturation et l'encaissement. Un rapport immédiat avec un score par pilier et des recommandations, puis la demande de Quick Scan.</p>
+      <span class="go">Ouvrir <span id="a1"></span></span>
+    </a>
+    <a class="tool" href="prospection/">
+      <div class="tool-top"><span class="index">02</span><span class="pill"><span class="bullet"></span>Outil interne</span></div>
+      <h2 class="h3">Moteur de prospection par déclencheurs</h2>
+      <p class="muted mt-0">Veille des entreprises Life Sciences suisses (nominations, offres S/4HANA, acquisitions, nouveaux sites), scoring des comptes et messages personnalisés prêts à valider.</p>
+      <span class="go">Ouvrir <span id="a2"></span></span>
+    </a>
+    <a class="tool" aria-disabled="true" style="pointer-events:none;opacity:.6">
+      <div class="tool-top"><span class="index">03</span><span class="pill"><span class="bullet"></span>Missions & suivi</span></div>
+      <h2 class="h3">Analyseur O2C sur données réelles</h2>
+      <p class="muted mt-0">Import des exports ERP, calcul du DSO, du cycle de commande, des litiges et des commandes parfaites, détection des anomalies et diagnostic chiffré.</p>
+      <span class="go">En préparation <span id="a3"></span></span>
+    </a>
+  </section>
+  <footer class="foot">
+    <span>© SCO · Supply Chain Operations SA · Bussigny</span>
+    <span id="credit"></span>
+  </footer>
+</div>
+<script>
+/* Logos SCO (extraits du Figma SCO_OTC) et Finalyn. Généré par tools/gen-brand.mjs */
+(function () {
+  var SYM = ["M68.49 31.25L59.51 46.45L59.50 46.44L53.44 56.70C51.30 60.33 47.31 62.57 42.99 62.59L22.49 62.69C18.17 62.71 14.16 60.50 11.98 56.89L1.65 39.79C-0.53 36.18 -0.55 31.73 1.59 28.10L7.62 17.91L16.23 3.31C18.07 0.19 22.16 -0.92 25.41 0.82C28.74 2.60 29.90 6.69 27.98 9.86L19.23 24.31L17.03 28.03C14.89 31.66 14.91 36.11 17.09 39.72L19.64 43.94C21.82 47.55 25.83 49.76 30.15 49.74L35.21 49.72C39.53 49.70 43.52 47.45 45.66 43.82L47.90 40.04L47.90 40.04L56.88 24.85C58.71 21.75 62.80 20.67 66.00 22.44C69.21 24.21 70.32 28.16 68.49 31.25Z","M26.38 31.75L35.36 16.56L35.36 16.56L41.43 6.30C43.57 2.67 47.56 0.43 51.88 0.41L72.38 0.31C76.70 0.29 80.71 2.50 82.89 6.11L93.22 23.21C95.40 26.82 95.42 31.27 93.28 34.90L87.25 45.09L78.63 59.69C76.80 62.81 72.71 63.91 69.46 62.18C66.12 60.40 64.96 56.31 66.89 53.14L75.64 38.69L77.84 34.97C79.98 31.34 79.96 26.89 77.78 23.28L75.23 19.06C73.05 15.45 69.04 13.24 64.72 13.26L59.66 13.28C55.34 13.30 51.35 15.55 49.21 19.18L46.97 22.96L46.97 22.96L37.98 38.15C36.16 41.25 32.07 42.32 28.86 40.56C25.66 38.79 24.55 34.84 26.38 31.75Z"];
+  var WORD = ["M159.58 41.61C159.58 46.91 157.88 50.80 154.06 53.31C150.31 55.79 144.63 56.85 136.86 56.85C128.47 56.85 122.26 55.34 118.13 52.31C113.96 49.25 112.02 44.73 112.02 38.99C112.02 38.30 112.60 37.74 113.31 37.74L120.69 37.74C121.41 37.74 121.99 38.30 121.99 38.99C121.99 42.38 123.08 44.69 125.40 46.19C127.78 47.73 131.56 48.50 137.10 48.50C141.64 48.50 144.82 47.95 146.83 46.89C147.83 46.37 148.53 45.73 148.98 44.97C149.44 44.21 149.67 43.29 149.67 42.18L149.67 41.98C149.64 40.98 149.45 40.20 149.11 39.56C148.76 38.89 148.22 38.34 147.42 37.86C145.78 36.88 143.14 36.25 139.11 35.62L139.11 35.62L128.19 33.86C124.08 33.22 120.49 31.97 117.91 29.83C115.30 27.68 113.79 24.67 113.79 20.67C113.79 16.02 115.74 12.44 119.50 10.06C123.21 7.71 128.63 6.56 135.51 6.56C142.84 6.56 148.48 7.91 152.31 10.56C156.17 13.25 158.10 17.21 158.10 22.21C158.10 22.89 157.53 23.45 156.81 23.45L149.49 23.45C148.78 23.45 148.20 22.89 148.20 22.21C148.20 19.68 147.33 17.93 145.45 16.77C143.49 15.56 140.34 14.92 135.62 14.92C131.44 14.92 128.43 15.43 126.49 16.38C125.53 16.85 124.86 17.42 124.42 18.07C123.98 18.71 123.76 19.48 123.76 20.38C123.76 22.00 124.57 23.20 126.17 24.13C127.71 25.04 129.94 25.66 132.74 26.11L133.31 26.20L133.31 26.20L144.41 27.91C149.02 28.57 152.82 29.76 155.47 31.93C158.16 34.13 159.58 37.27 159.58 41.61Z","M206.52 37.39L214.23 37.39C214.97 37.39 215.52 38.04 215.38 38.74C213.48 48.61 204.66 56.75 190.02 56.75C181.30 56.75 174.55 53.91 169.99 49.29C165.44 44.68 163.11 38.35 163.11 31.49C163.11 24.63 165.45 18.45 170.02 13.87C174.60 9.29 181.36 6.46 190.08 6.46C204.66 6.46 213.54 14.62 215.40 24.48C215.54 25.17 214.99 25.82 214.25 25.82L206.54 25.82C205.99 25.82 205.52 25.45 205.40 24.93C204.13 19.71 199.03 15.10 190.14 15.10C184.14 15.10 179.90 17.06 177.16 20.05C174.40 23.06 173.08 27.18 173.08 31.61C173.08 36.04 174.40 40.21 177.15 43.20C179.89 46.18 184.11 48.11 190.08 48.11C195.13 48.11 198.90 46.67 201.46 44.53C203.51 42.81 204.81 40.61 205.38 38.27C205.50 37.76 205.97 37.39 206.52 37.39Z","M266.07 14.03C261.52 9.43 254.85 6.56 246.39 6.56C237.92 6.56 231.26 9.43 226.71 14.03C222.16 18.62 219.78 24.90 219.78 31.65C219.78 38.40 222.16 44.77 226.71 49.37C231.26 53.99 237.92 56.85 246.39 56.85C254.85 56.85 261.52 53.99 266.07 49.37C270.61 44.77 273.00 38.46 273.00 31.65C273.00 24.84 270.61 18.62 266.07 14.03ZM259.07 43.26C256.39 46.26 252.26 48.21 246.39 48.21C240.51 48.21 236.38 46.26 233.71 43.26C231.02 40.25 229.74 36.11 229.74 31.65C229.74 27.19 231.02 23.17 233.71 20.16C236.38 17.17 240.52 15.20 246.39 15.20C252.26 15.20 256.39 17.17 259.07 20.16C261.76 23.17 263.04 27.27 263.04 31.65C263.04 36.03 261.76 40.25 259.07 43.26Z"];
+  var FINALYN = "<rect x=\"462.48\" y=\"83.65\" width=\"17.48\" height=\"17.48\" rx=\"2.87\" ry=\"2.87\"/><path d=\"M0,69.64c.03,4.44.06,8.3.08,11.41.03,4.18.05,8.86.09,18.21,0,.19,0,1.72,0,1.91,6.91,0,13.83,0,20.74,0,.09-3,.04-5.43-.01-7.01,0,0-.78-26.25.94-29.22.24-.41.52-.76.86-1.12,2.64-2.76,5.65-2.25,28.88-2.14,7,.04,12.75.02,16.6,0v-16.42c-28.72-.25-40.42-.25-44.98-.17-.14,0-.22,0-.3,0-3.68.09-9.13.22-14.07,3.25-1.59.97-6.71,4.45-8.29,10.73-.41,1.63-.48,3.04-.47,4-.02,2.19-.04,4.38-.06,6.57Z\"/><path d=\"M.11,2.3l-.03,28.03c0,5.79-.01,11.57-.02,17.36,1.8-1.51,4.48-3.4,8.08-4.85,5.34-2.15,10.11-2.27,12.89-2.12v-22.3h52.38V2.26c-24.43.01-48.87.02-73.3.03Z\"/><path d=\"M81.53,101.14V23.13h20.23v78h-20.23Z\"/><path d=\"M184.85,57.15v43.99h-20.23v-41.2c0-3.23,0-6.89-.29-10.85-.59-8.21-5.13-13.78-14.96-13.78s-17.59,8.51-17.59,30.21v35.63h-20.23V23.13h20.23v12.61c.64-2.09,2.19-6.09,6.01-9.24,2.11-1.73,4.09-2.54,5.81-3.22,1.93-.77,6.57-2.21,12.96-2.21,16.57,0,26.1,8.21,27.71,21.85.44,3.96.59,7.92.59,14.22Z\"/><path d=\"M239.69,89.7c-.27,1.9-1.06,5.41-3.81,8.36-3.63,3.88-8.47,4.42-12.4,4.8-3.32.32-20.64,1.99-28.42-9.75-3.49-5.28-3.61-11.07-3.61-12.64,0-17.15,14.66-26.83,42.96-26.83h4.99v-1.61c0-2.35,0-4.69-.29-7.33-.59-5.42-4.11-9.38-12.02-9.38s-12.46,4.69-13.05,13.2l-19.65.15c.59-17.59,14.81-27.57,33.43-27.57,21.85,0,30.06,9.53,31.23,23.02.29,3.67.44,7.77.44,12.02v25.22c-.12,1.84-.12,3.94.14,6.25.67,5.87,2.71,10.46,4.4,13.46-7.62.03-15.25.06-22.87.08l-1.47-11.44ZM239.4,72.4v-6.31c-16.13-1.17-26.98,2.49-26.98,12.76,0,6.89,4.69,10.12,11.88,10.12,8.21,0,15.1-5.72,15.1-16.57Z\"/><path d=\"M287.41,75.62c0,3.08,0,5.13.15,7.18.44,3.96,2.2,5.28,9.09,4.84v13.93c-3.96.44-7.92.59-12.46.59-9.97,0-16.28-3.67-16.72-13.78-.29-3.52-.29-7.18-.29-12.32V2.16h20.23s0,73.46,0,73.46Z\"/><path d=\"M345.74,102.64c-2.99,8.05-8.96,24.51-22.13,28.12-2.43.67-4.38.7-5.61.7-22.73.18-43.65.22-50.97.23,0-4.56,0-9.12,0-13.68,19.86-.15,34.88-.38,42.54-.31,1.46.01,4.85.06,8.18-1.95,2.65-1.6,4.75-4.29,6.48-8.46l1.03-2.49-31.82-81.67h22.58l19.35,62.61,19.06-62.61h22.14c-12.86,33.14-23.5,59.73-30.84,79.51Z\"/><path d=\"M453.83,57.15v43.99h-20.23v-41.2c0-3.23,0-6.89-.29-10.85-.59-8.21-5.13-13.78-14.96-13.78s-17.6,8.51-17.6,30.21v35.63h-20.23V23.13h20.23v12.61c.64-2.09,2.19-6.09,6.01-9.24,2.11-1.74,4.1-2.54,5.82-3.22,1.93-.76,6.56-2.2,12.95-2.2,16.57,0,26.1,8.21,27.71,21.85.44,3.96.59,7.92.59,14.22Z\"/><rect x=\"81.52\" y=\"2.34\" width=\"20.23\" height=\"15.9\"/>";
+  function paths(list, color) { return list.map(function (d) { return '<path d="' + d + '" fill="' + color + '"/>'; }).join(""); }
+  window.SCO_BRAND = {
+    /* Logo horizontal : symbole rouge + SCO noir (comme supplychainoperations.ch) */
+    logo: function (o) {
+      o = o || {}; var h = o.height || 28, sc = o.symbol || "#FF3F4C", tc = o.text || "#0B0909";
+      return '<svg class="sco-logo" role="img" aria-label="SCO" viewBox="0 0 273 63" height="' + h + '" width="' + (h * 273 / 63).toFixed(1) + '">' + paths(SYM, sc) + paths(WORD, tc) + '</svg>';
+    },
+    /* Symbole seul */
+    symbol: function (o) {
+      o = o || {}; var h = o.height || 28, c = o.color || "#FF3F4C";
+      return '<svg class="sco-symbol" role="img" aria-label="SCO" viewBox="0 0 94 63" height="' + h + '" width="' + (h * 94 / 63).toFixed(1) + '">' + paths(SYM, c) + '</svg>';
+    },
+    /* Symbole en traits fins, motif de fond du site SCO */
+    symbolOutline: function (o) {
+      o = o || {}; var c = o.color || "#0B0909", w = o.stroke || 0.12, op = o.opacity == null ? 0.18 : o.opacity;
+      return '<svg class="sco-symbol-outline" aria-hidden="true" viewBox="-2 -2 98 67" preserveAspectRatio="xMidYMid meet">' + SYM.map(function (d) { return '<path d="' + d + '" fill="none" stroke="' + c + '" stroke-width="' + w + '" stroke-opacity="' + op + '" vector-effect="non-scaling-stroke"/>'; }).join("") + '</svg>';
+    },
+    /* Logo Finalyn (wordmark « Finalyn. ») */
+    finalyn: function (o) {
+      o = o || {}; var h = o.height || 14, c = o.color || "#1D1D1B";
+      return '<svg class="finalyn-logo" role="img" aria-label="Finalyn" viewBox="0 0 479.96 131.7" height="' + h + '" width="' + (h * 479.96 / 131.7).toFixed(1) + '" fill="' + c + '">' + FINALYN + '</svg>';
+    }
+  };
+})();
+
+</script>
+<script>
+  var B = window.SCO_BRAND;
+  document.getElementById("logo").innerHTML = B.logo({ height: 24 });
+  document.getElementById("lines").innerHTML = B.symbolOutline({ opacity: 0.12 }) + B.symbolOutline({ color: "#FF3F4C", opacity: 0.35 }).replace('class="sco-symbol-outline"', 'class="sco-symbol-outline red"');
+  document.getElementById("credit").innerHTML = '<a class="finalyn-credit" href="https://finalyn.ch" target="_blank" rel="noopener">Conçu par ' + B.finalyn({ height: 11, color: "#7A7171" }) + "</a>";
+  var arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  ["a1", "a2", "a3"].forEach(function (id) { document.getElementById(id).innerHTML = arrow; });
+</script>
+</body>
+</html>
