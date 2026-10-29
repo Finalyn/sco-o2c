@@ -395,6 +395,12 @@ a { color: inherit; }
 .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; font-size: 0.8125rem; color: var(--text-2); }
 .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 0.4rem; vertical-align: -1px; }
 
+/* Réglages de la clé IA masqués (voir SHOW_SETTINGS dans ai.js) */
+.no-ai-ui #ai-btn,
+.no-ai-ui #ai-setup,
+.no-ai-ui [data-action="ai"],
+.no-ai-ui [data-action="ai-settings"] { display: none !important; }
+
 /* Utilitaires */
 .hidden { display: none !important; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
